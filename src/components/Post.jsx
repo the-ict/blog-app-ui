@@ -4,7 +4,7 @@ import "./components.css"
 export default function Post({ post }) {
     console.log(post)
     return (
-        <div className='post'>
+        <div className='post' >
             {post.photo && (
                 <img src="https://images.pexels.com/photos/1151418/pexels-photo-1151418.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="" />
             )}
@@ -14,7 +14,7 @@ export default function Post({ post }) {
                         {
                             post.categories.map(c => (
                                 <>
-                                    <li>{c}</li>
+                                    <li key={c}>{c}</li>
                                 </>
                             ))
                         }

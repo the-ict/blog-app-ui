@@ -5,9 +5,11 @@ export default function Posts({ posts }) {
   return (
     <div className='posts'>
       {
-        posts.map(post => (
-          <Post post={post} />
-        ))
+        posts == 0 ? <p>Your Posts Empty</p> : (
+          posts.map(post => (
+            <Post post={post} />
+          ))
+        )
       }
     </div>
   )
