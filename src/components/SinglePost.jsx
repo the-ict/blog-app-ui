@@ -17,12 +17,14 @@ export default function SinglePost() {
         getPost()
     }, [])
 
+    const photoUrl = `http://localhost:5000/images/${post.photo}`
+
     return (
         <div className='single-post'>
             <div className="single-post__wrapper">
                 {
                     post.photo && (
-                        <img src="https://images.pexels.com/photos/1251026/pexels-photo-1251026.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="single post image" />
+                        <img src={photoUrl} alt="single post image" />
                     )
                 }
                 <h1 className="single-post__title">
