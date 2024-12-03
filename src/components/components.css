@@ -16,6 +16,7 @@
     list-style: none;
     gap: 1rem;
 }
+
 .navbar-left,
 .navbar-right {
     flex: 3;
@@ -231,7 +232,7 @@
 
 /* Single Post style */
 .single-post {
-    flex: 6;
+    flex: 9;
     padding: 20px;
 }
 

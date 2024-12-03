@@ -1,22 +1,42 @@
+import { useLocation } from "react-router-dom"
 import "./components.css"
+import { useEffect, useState } from "react"
+import axios from "axios"
 
 export default function SinglePost() {
+    const [post, setPost] = useState([])
+
+    const location = useLocation()
+    const path = location.pathname.split("/")[2]
+
+    useEffect(() => {
+        const getPost = async () => {
+            const res = await axios.get(`http://localhost:5000/api/post/${path}`)
+            setPost(res.data)
+        }
+        getPost()
+    }, [])
+
     return (
         <div className='single-post'>
             <div className="single-post__wrapper">
-                <img src="https://images.pexels.com/photos/1251026/pexels-photo-1251026.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="single post image" />
+                {
+                    post.photo && (
+                        <img src="https://images.pexels.com/photos/1251026/pexels-photo-1251026.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="single post image" />
+                    )
+                }
                 <h1 className="single-post__title">
-                    Lorem ipsum dolor sit amet quis!
+                    {post.title}
                     <div className="post-title__icons">
                         <i className="title-icons fa-regular fa-pen-to-square"></i>
                         <i className="title-icons fa-solid fa-delete-left"></i>
                     </div>
                 </h1>
                 <div className="single-post__info">
-                    <p className="post-info__author">Author: <span>Safak</span></p>
-                    <p className="post-info__date">1 hour ago</p>
+                    <p className="post-info__author">Author: <span>{post.username}</span></p>
+                    <p className="post-info__date">{new Date(post.createdAt).toDateString()}</p>
                 </div>
-                <p className="single-post__desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae amet veniam consequatur quam culpa aspernatur repudiandae dolores, tempore, eaque, quos ullam neque eum animi? Quas recusandae dignissimos cupiditate voluptatum omnis!Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae amet veniam consequatur quam culpa aspernatur repudiandae dolores, tempore, eaque, quos ullam neque eum animi? Quas recusandae dignissimos cupiditate voluptatum omnis!Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae amet veniam consequatur quam culpa aspernatur repudiandae dolores, tempore, eaque, quos ullam neque eum animi? Quas recusandae dignissimos cupiditate voluptatum omnis!</p>
+                <p className="single-post__desc">{post.desc}</p>
             </div>
         </div>
     )

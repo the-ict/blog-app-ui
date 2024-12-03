@@ -1,19 +1,30 @@
+import { Link } from "react-router-dom"
 import "./components.css"
 
-export default function Post() {
+export default function Post({ post }) {
+    console.log(post)
     return (
         <div className='post'>
-            <img src="https://images.pexels.com/photos/1151418/pexels-photo-1151418.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="" />
+            {post.photo && (
+                <img src="https://images.pexels.com/photos/1151418/pexels-photo-1151418.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="" />
+            )}
             <div className='post-info'>
                 <div className='post-info__title'>
                     <ul className='info-title__categories'>
-                        <li>Music</li>
-                        <li>Life</li>
+                        {
+                            post.categories.map(c => (
+                                <>
+                                    <li>{c}</li>
+                                </>
+                            ))
+                        }
                     </ul>
-                    <p className='info-title__title'>Lorem ipsum dolor sit amet consectetur </p>
-                    <p className='info-title__date'>1 hours ago</p>
+                    <Link className="link" to={`/single/${post._id}`}>
+                        <p className='info-title__title'>{post.title}</p>
+                    </Link>
+                    <p className='info-title__date'>{new Date(post.createdAt).toDateString()}</p>
                 </div>
-                <p className='post-info__desc'>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Distinctio soluta nesciunt reiciendis itaque optio officiis. Labore recusandae porro doloribus nostrum, dolores, eligendi error nulla rerum itaque quos voluptatem odit quas.</p>
+                <p className='post-info__desc'>{post.desc}</p>
             </div>
         </div>
     )

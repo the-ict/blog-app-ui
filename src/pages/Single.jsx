@@ -8,7 +8,7 @@ export default function Single({ user }) {
     return (
         <>
             <Navbar user={user} />
-            <div className='single-post'>
+            <div className='singlee-post'>
                 <SinglePost />
                 <Sidebar />
             </div>
