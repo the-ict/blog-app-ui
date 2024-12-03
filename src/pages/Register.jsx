@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import "./pages.css"
 import axios from "axios"
+import { Link } from 'react-router-dom'
 
 export default function Register() {
     const [username, setUsername] = useState("")
@@ -30,7 +31,9 @@ export default function Register() {
     }
     return (
         <div className='register'>
-            <button className='link-button'>Login</button>
+            <button className='link-button'>
+                <Link className='link' to={"/login"}>Login</Link>
+            </button>
             <form className="register-form" onSubmit={handleSubmit}>
                 <p className='register-form__title'>Register</p>
                 <label>Username</label>

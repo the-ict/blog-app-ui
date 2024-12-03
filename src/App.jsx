@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import Home from "./pages/Home"
 import Single from './pages/Single'
 import Write from "./pages/Write"
@@ -9,7 +9,8 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
 
 
 export default function App() {
-  const user = false
+  const user = JSON.parse(localStorage.getItem('user')) || false
+  console.log(user, "app")
   return (
     <div className='app'>
       <Router>

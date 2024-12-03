@@ -1,9 +1,15 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import "./components.css"
 import { Link } from "react-router-dom"
+import { Context } from '../context/Context'
 
 export default function Topbar({ user }) {
-    console.log(user)
+    const { dispatch } = useContext(Context)
+
+    const handleLogOut = () => {
+        dispatch({ type: "LOGOUT" })
+    }
+
     return (
         <div className='navbar'>
             <div className="navbar-left">
@@ -28,7 +34,7 @@ export default function Topbar({ user }) {
                         <Link className='link' to={"/write"}>WRITE</Link>
                     </li>
                     <li className='center-navigation__item'>
-                        <Link className='link' to={"/"}>LOGOUT</Link>
+                        <Link className='link' to={"/"} onClick={handleLogOut} >{user && "LOGOUT"}</Link>
                     </li>
                 </ul>
             </div>
@@ -36,7 +42,7 @@ export default function Topbar({ user }) {
                 {user ?
                     <>
                         <Link className='link' to={"/settings"}>
-                            <img src="https://images.pexels.com/photos/1858175/pexels-photo-1858175.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500" alt="" className="navbar-right__img" />
+                            <img src={user.profile_picture} alt="" className="navbar-right__img" />
                         </Link>
                         <i className="navbar-right__search fa-solid fa-magnifying-glass"></i>
                     </> :

@@ -273,6 +273,11 @@ textarea {
     align-self: center;
 }
 
+.login-form button:disabled {
+    background-color: rgb(201, 131, 174);
+    cursor: not-allowed;
+}
+
 .link-button {
     position: absolute;
     top: 20px;
@@ -285,4 +290,8 @@ textarea {
     outline: none;
     border-radius: 10px;
     font-size: 17px;
+}
+
+.link-button .link {
+    color: white;
 }
