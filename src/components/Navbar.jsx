@@ -3,13 +3,13 @@ import "./components.css"
 import { Link } from "react-router-dom"
 import { Context } from '../context/Context'
 
-export default function Topbar({ user }) {
-    const { dispatch } = useContext(Context)
+export default function Topbar() {
+    const { dispatch, user } = useContext(Context)
 
     const handleLogOut = () => {
         dispatch({ type: "LOGOUT" })
     }
-
+    const photoUrl = `http://localhost:5000/images/${user.profile_picture}`
     return (
         <div className='navbar'>
             <div className="navbar-left">
@@ -42,7 +42,7 @@ export default function Topbar({ user }) {
                 {user ?
                     <>
                         <Link className='link' to={"/settings"}>
-                            <img src={user.profile_picture} alt="" className="navbar-right__img" />
+                            <img src={photoUrl} alt="" className="navbar-right__img" />
                         </Link>
                         <i className="navbar-right__search fa-solid fa-magnifying-glass"></i>
                     </> :

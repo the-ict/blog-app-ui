@@ -105,6 +105,10 @@ textarea {
     margin: 10px 0px;
 }
 
+.wrapper-form__pp img {
+    object-fit: cover;
+}
+
 .wrapper-form__pp label {
     margin-left: 10px;
     font-size: 30px;

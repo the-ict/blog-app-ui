@@ -283,6 +283,40 @@
     font-weight: bold;
 }
 
+.single-post__wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+.post-update__input {
+    margin-top: 5px;
+    padding: 5px;
+    font-size: 20px;
+    text-align: center;
+    border: none;
+    outline: none;
+    border-bottom: 1px solid gray;
+}
+
+.post-update__area {
+    border-top: 1px solid gray;
+}
+
+.post-update__button {
+    width: 150px;
+    padding: 5px 10px;
+    border-radius: 5px;
+    background-color: teal;
+    color: white;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    margin-top: 20px;
+    align-self: flex-end;
+}
+
+
+
 .post-info__author span {
     color: rgb(151, 151, 73);
 }
