@@ -1,5 +1,5 @@
-## 📥 **Video Yuklab Olish Ilovasi**  
-*Instagram va yana 10+ platformadan videolarni yuklab olish uchun React Native ilovasi!* 🚀  
+## 📥 **Blog**  
+*Hohlagan postingizni yarating!* 🚀  
 
 
 ### ✨ **Xususiyatlar**  
